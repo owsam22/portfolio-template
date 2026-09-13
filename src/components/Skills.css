@@ -1,0 +1,362 @@
+.skills-section {
+    padding: var(--spacing-2xl) 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.skills-marquee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+    min-width: 0;
+    /* Important for flex child with overflow */
+}
+
+.skills-layout-wrapper {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-top: 3rem;
+}
+
+.skills-visual {
+    width: 30%;
+    position: sticky;
+    top: 100px;
+}
+
+.visual-card {
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-2xl);
+    padding: 0;
+}
+
+.pinterest-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.visual-card:hover .pinterest-gif {
+    transform: scale(1.1);
+}
+
+.visual-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 60%,
+            rgba(15, 23, 42, 0.4));
+    pointer-events: none;
+}
+
+/* Marquee Row */
+.marquee-row {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0;
+    white-space: nowrap;
+    animation: scroll 40s linear infinite;
+}
+
+.marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-row.reverse .marquee-track {
+    animation-direction: reverse;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+/* Skill Bubble */
+.skill-bubble {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: var(--text-primary);
+}
+
+.skill-bubble:hover {
+    background: rgba(112, 112, 188, 0.644);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+.skill-bubble img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: transform var(--transition-base);
+}
+
+.skill-bubble:hover img {
+    transform: rotate(10deg) scale(1.2);
+    filter: brightness(1.2);
+}
+
+.skill-name {
+    font-weight: 600;
+    font-size: var(--font-size-base);
+}
+
+/* Reactive Detail Panel */
+.reactive-detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-slow);
+}
+
+.reactive-detail-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.detail-content {
+    background: var(--bg-primary);
+    width: 90%;
+    max-width: 600px;
+    padding: 3rem;
+    border-radius: var(--radius-2xl);
+    position: relative;
+    transform: scale(0.8) translateY(20px);
+    transition: all var(--transition-slow);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--glass-border);
+}
+
+.reactive-detail-overlay.active .detail-content {
+    transform: scale(1) translateY(0);
+}
+
+.close-detail {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: color var(--transition-base);
+}
+
+.close-detail:hover {
+    color: var(--accent);
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.detail-icon {
+    width: 80px;
+    height: 80px;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.detail-info h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: 0.5rem;
+    background: var(--primary-gradient);
+    -webkit-text-fill-color: transparent;
+}
+
+.detail-category {
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--font-size-xs);
+}
+
+.detail-body {
+    color: var(--text-secondary);
+}
+
+.detail-body p {
+    margin-bottom: 1.5rem;
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+}
+
+.skill-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+}
+
+.stat-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 992px) {
+    .skills-layout-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .skills-visual {
+        width: 100%;
+        position: static;
+    }
+
+    .visual-card {
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-track {
+        gap: 1rem;
+        animation-duration: 25s;
+    }
+
+    .skill-bubble {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .detail-content {
+        padding: 2rem;
+        width: 95%;
+    }
+
+    .detail-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .detail-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Detail Actions */
+.detail-actions {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.see-projects-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--primary-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 15px rgba(112, 112, 188, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.see-projects-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transition: left 0.6s ease;
+}
+
+.see-projects-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(112, 112, 188, 0.5);
+    color: white;
+}
+
+.see-projects-btn:hover::before {
+    left: 100%;
+}
+
+.see-projects-btn i {
+    font-size: 1.25rem;
+    transition: transform var(--transition-base);
+}
+
+.see-projects-btn:hover i {
+    transform: translateX(5px);
+}

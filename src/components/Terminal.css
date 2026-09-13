@@ -1,0 +1,140 @@
+.terminal-container {
+    position: fixed;
+    width: 350px;
+    height: 250px;
+    background: rgba(13, 17, 23, 0.95);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.terminal-header {
+    background: #21262d;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    cursor: grab;
+}
+
+.terminal-header:active {
+    cursor: grabbing;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27c93f;
+}
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #8b949e;
+    font-family: 'Space Mono', monospace;
+}
+
+.terminal-body {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: #39d353;
+    /* GitHub Green */
+}
+
+.terminal-history {
+    margin-bottom: 4px;
+}
+
+.terminal-line {
+    margin-bottom: 2px;
+    line-height: 1.4;
+}
+
+.terminal-input-area {
+    display: flex;
+    align-items: center;
+}
+
+.terminal-input-area input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    margin-left: 8px;
+}
+
+/* Launcher Button - Minimalist Professional */
+.terminal-launcher {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    width: 54px;
+    height: 54px;
+    background: var(--text-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-primary);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9998;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terminal-launcher:hover {
+    transform: translateY(-4px);
+    background: #000000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.terminal-launcher i {
+    font-size: 1.2rem;
+}
+
+.terminal-launcher span {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+    opacity: 0.8;
+}
+
+
+@media (max-width: 768px) {
+    .terminal-container,
+    .terminal-launcher {
+        display: none !important;
+    }
+}

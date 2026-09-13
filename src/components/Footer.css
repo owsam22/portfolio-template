@@ -1,0 +1,323 @@
+.footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #cbd5e1;
+    padding: 0 0 1.5rem;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Pet Runway ── */
+.pet-runway {
+    position: relative;
+    width: 100%;
+    height: 56px;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+    background: rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+/* Ground line pixels */
+.pet-runway::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(99, 102, 241, 0.4) 0px,
+        rgba(99, 102, 241, 0.4) 8px,
+        transparent 8px,
+        transparent 16px
+    );
+}
+
+/* ── Pixel Pet ── */
+.pixel-pet {
+    position: absolute;
+    bottom: 4px;
+    width: 32px;
+    height: 32px;
+    transition: left 0.016s linear;
+    image-rendering: pixelated;
+    cursor: pointer;
+}
+.pixel-pet.flip {
+    transform: scaleX(-1);
+}
+.pixel-pet:hover .pet-sprite {
+    filter: brightness(1.5) drop-shadow(0 0 6px rgba(99,102,241,0.8));
+    transform: scale(1.15) translateY(-3px);
+}
+
+/* ── Pixel Sprite — Cat engineer drawn with box-shadow ── */
+/*
+  Palette:
+    Body:   #818cf8  (indigo)
+    Dark:   #1e1b4b  (very dark indigo)
+    Skin:   #fde68a  (warm yellow for face)
+    Screen: #34d399  (teal — laptop screen)
+    White:  #f8fafc
+*/
+
+.pet-sprite {
+    position: relative;
+    width: 4px;
+    height: 4px;
+    background: transparent;
+    margin: 4px 0 0 2px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+
+    /* Row layout (each row is 4px tall, each pixel 4px wide)
+       We build a 8×8 cat engineer pixel art:
+       Row 0  (top, ears):    _ X _ _ _ X _
+       Row 1  (head top):     X X X X X X X
+       Row 2  (eyes):         X O X X X O X
+       Row 3  (face):         X X X X X X X
+       Row 4  (body top):     _ X X X X X _
+       Row 5  (laptop):       _ X [=====] _
+       Row 6  (legs):         _ X X _ X X _
+       Row 7  (feet):         X _ _ _ _ _ X
+    */
+    box-shadow:
+        /* Row 0 — ears */
+        4px  0px 0 0 #818cf8,
+        20px 0px 0 0 #818cf8,
+
+        /* Row 1 — head */
+        0px  4px 0 0 #818cf8,
+        4px  4px 0 0 #fde68a,
+        8px  4px 0 0 #fde68a,
+        12px 4px 0 0 #fde68a,
+        16px 4px 0 0 #fde68a,
+        20px 4px 0 0 #fde68a,
+        24px 4px 0 0 #818cf8,
+
+        /* Row 2 — eyes */
+        0px  8px 0 0 #818cf8,
+        4px  8px 0 0 #1e1b4b,
+        8px  8px 0 0 #fde68a,
+        12px 8px 0 0 #fde68a,
+        16px 8px 0 0 #fde68a,
+        20px 8px 0 0 #1e1b4b,
+        24px 8px 0 0 #818cf8,
+
+        /* Row 3 — face/mouth */
+        0px  12px 0 0 #818cf8,
+        4px  12px 0 0 #fde68a,
+        8px  12px 0 0 #fde68a,
+        12px 12px 0 0 #f8fafc,
+        16px 12px 0 0 #fde68a,
+        20px 12px 0 0 #fde68a,
+        24px 12px 0 0 #818cf8,
+
+        /* Row 4 — body */
+        4px  16px 0 0 #818cf8,
+        8px  16px 0 0 #818cf8,
+        12px 16px 0 0 #818cf8,
+        16px 16px 0 0 #818cf8,
+        20px 16px 0 0 #818cf8,
+
+        /* Row 5 — laptop */
+        4px  20px 0 0 #818cf8,
+        8px  20px 0 0 #1e1b4b,
+        12px 20px 0 0 #34d399,
+        16px 20px 0 0 #34d399,
+        20px 20px 0 0 #1e1b4b,
+
+        /* Row 6 — legs */
+        4px  24px 0 0 #818cf8,
+        8px  24px 0 0 #818cf8,
+        16px 24px 0 0 #818cf8,
+        20px 24px 0 0 #818cf8,
+
+        /* Row 7 — feet */
+        0px  28px 0 0 #6366f1,
+        4px  28px 0 0 #6366f1,
+        16px 28px 0 0 #6366f1,
+        20px 28px 0 0 #6366f1,
+        24px 28px 0 0 #6366f1;
+}
+
+/* Walk animation — wiggle feet on frame-1 */
+.pixel-pet.frame-1 .pet-sprite {
+    box-shadow:
+        /* Row 0 — ears */
+        4px  0px 0 0 #818cf8,
+        20px 0px 0 0 #818cf8,
+        /* Row 1 */
+        0px  4px 0 0 #818cf8,
+        4px  4px 0 0 #fde68a,
+        8px  4px 0 0 #fde68a,
+        12px 4px 0 0 #fde68a,
+        16px 4px 0 0 #fde68a,
+        20px 4px 0 0 #fde68a,
+        24px 4px 0 0 #818cf8,
+        /* Row 2 */
+        0px  8px 0 0 #818cf8,
+        4px  8px 0 0 #1e1b4b,
+        8px  8px 0 0 #fde68a,
+        12px 8px 0 0 #fde68a,
+        16px 8px 0 0 #fde68a,
+        20px 8px 0 0 #1e1b4b,
+        24px 8px 0 0 #818cf8,
+        /* Row 3 */
+        0px  12px 0 0 #818cf8,
+        4px  12px 0 0 #fde68a,
+        8px  12px 0 0 #fde68a,
+        12px 12px 0 0 #f8fafc,
+        16px 12px 0 0 #fde68a,
+        20px 12px 0 0 #fde68a,
+        24px 12px 0 0 #818cf8,
+        /* Row 4 */
+        4px  16px 0 0 #818cf8,
+        8px  16px 0 0 #818cf8,
+        12px 16px 0 0 #818cf8,
+        16px 16px 0 0 #818cf8,
+        20px 16px 0 0 #818cf8,
+        /* Row 5 */
+        4px  20px 0 0 #818cf8,
+        8px  20px 0 0 #1e1b4b,
+        12px 20px 0 0 #34d399,
+        16px 20px 0 0 #34d399,
+        20px 20px 0 0 #1e1b4b,
+        /* Row 6 — legs shifted for walk */
+        8px  24px 0 0 #818cf8,
+        12px 24px 0 0 #818cf8,
+        12px 24px 0 0 #818cf8,
+        20px 24px 0 0 #818cf8,
+        /* Row 7 — feet shifted */
+        4px  28px 0 0 #6366f1,
+        8px  28px 0 0 #6366f1,
+        16px 28px 0 0 #6366f1,
+        20px 28px 0 0 #6366f1,
+        24px 28px 0 0 #6366f1;
+}
+
+/* ── Footer content ── */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+    padding-top: 3rem;
+}
+
+.footer-brand h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 0.75rem;
+}
+
+.footer-brand p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.footer-links h3,
+.footer-social h3 {
+    font-size: var(--font-size-lg);
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Tools link special style */
+.footer-tools-link {
+    color: #818cf8 !important;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.footer-tools-link i {
+    font-size: 1rem;
+    transition: transform var(--transition-base);
+}
+
+.footer-tools-link:hover {
+    color: #a5b4fc !important;
+}
+
+.footer-tools-link:hover i {
+    transform: rotate(-45deg) translateX(2px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #cbd5e1;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.social-links a:hover {
+    background: var(--primary-gradient);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #94a3b8;
+    font-size: var(--font-size-sm);
+    margin: 0.25rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-links ul {
+        align-items: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .pixel-pet {
+        display: none; /* Hide on very small screens for performance */
+    }
+}

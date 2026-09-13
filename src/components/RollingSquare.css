@@ -1,0 +1,43 @@
+.rolling-square-container {
+    position: fixed;
+    top: 50%;
+    left: -14vh; /* Crop by ~35% of its 40vh width */
+    z-index: -1000; 
+    pointer-events: none;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.1s linear;
+}
+
+.rolling-square-container.visible {
+    opacity: 1;
+}
+
+.rolling-square {
+    width: 40vh;
+    height: 40vh;
+    background: var(--primary-gradient);
+    border-radius: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.104);
+    box-shadow: 0 0 50px rgba(99, 101, 241, 0.137);
+    transition: transform 0.1s linear;
+    backdrop-filter: blur(8px);
+    opacity: 0.25; /* Lower opacity for such a large element */
+}
+
+@media (max-width: 768px) {
+    .rolling-square-container {
+        left: -20px;
+    }
+    
+    .rolling-square {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rolling-square-container {
+        display: none; /* Hide on very small screens to avoid overlap */
+    }
+}

@@ -1,0 +1,183 @@
+.contact-section {
+    background: transparent;
+    padding: 4rem 0;
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    margin-bottom: 3.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Galano Grotesque", Poppins, Montserrat, sans-serif;
+    line-height: 1.6;
+}
+
+.contact-form {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.05rem;
+    font-family: "Galano Grotesque", Poppins, Montserrat, sans-serif;
+    color: #4a4a4a;
+    background: #f2f3f5;
+    border: none;
+    border-radius: 14px;
+    box-shadow:
+        inset 5px 5px 10px rgba(0, 0, 0, 0.05),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    resize: vertical;
+}
+
+.form-input::placeholder {
+    color: #a1a1a1;
+    font-weight: 500;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow:
+        inset 2px 2px 5px rgba(0, 0, 0, 0.03),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.8),
+        0 0 0 4px rgba(255, 85, 105, 0.2);
+    /* matches the button's pink */
+    background: #fafafc;
+}
+
+.submit-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.contact-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-width: 220px;
+    padding: 0.95rem 1.4rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff5569, #ff6e7f);
+    color: #ffffff;
+    font-family: "Galano Grotesque", Poppins, Montserrat, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(255, 85, 105, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.contact-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(255, 85, 105, 0.28);
+}
+
+.contact-submit-btn:disabled {
+    cursor: wait;
+    opacity: 0.9;
+}
+
+.contact-submit-btn.is-sending {
+    background: linear-gradient(135deg, #ff7a8c, #ff5569);
+}
+
+.contact-submit-btn.is-sent {
+    background: linear-gradient(135deg, #2bc48a, #23b684);
+    box-shadow: 0 12px 30px rgba(43, 196, 138, 0.22);
+}
+
+.contact-submit-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    position: relative;
+}
+
+.spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+.checkmark,
+.retry-icon,
+.arrow-icon {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.checkmark {
+    animation: popIn 0.3s ease both;
+}
+
+.form-message {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-family: "Galano Grotesque", Poppins, Montserrat, sans-serif;
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.form-message.success {
+    background: #f7f8f7;
+    /* matches neutral-1 from button */
+    color: #ff5569;
+    /* matches primary from button */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 85, 105, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .form-input {
+        padding: 1rem 1.25rem;
+    }
+}
