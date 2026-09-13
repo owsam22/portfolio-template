@@ -1,0 +1,89 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Synkin",
+      "description": "USB-based development bridge that lets developers instantly preview local web projects on an Android device through ADB.",
+      "image": "https://raw.githubusercontent.com/owsam22/synkin-page/refs/heads/main/synkin-demo.gif",
+      "github": "https://github.com/owsam22/synkin-page",
+      "demo": "https://owsam22.github.io/synkin-page/",
+      "tech": [
+        "Node.js",
+        "TypeScript",
+        "ADB",
+        "Commander.js"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Smart Hostel Management",
+      "description": "Full-stack hostel management platform for managing rooms, students, complaints, payments, attendance, and administrative operations.",
+      "image": "https://i.pinimg.com/736x/25/47/f0/2547f07956ed74634a00c9fde3948e2c.jpg",
+      "github": "https://github.com/owsam22/smart-hostel",
+      "demo": "https://smart-hostel-6q9b.onrender.com/",
+      "tech": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Disease Prediction AI",
+      "description": "Machine learning application that predicts potential diseases from user-provided symptoms and health-related data.",
+      "image": "https://raw.githubusercontent.com/owsam22/diabetes-risk-engine/refs/heads/main/assets/dashboard.png",
+      "github": "https://github.com/owsam22/diabetes-risk-engine",
+      "demo": "https://diabetes-risk-engine.vercel.app/",
+      "tech": [
+        "Python",
+        "Flask",
+        "Pandas",
+        "Scikit-learn",
+        "Machine Learning"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Pixel Engineer",
+      "description": "Animated pixel-art live wallpaper application designed for developers, featuring a dynamic coding-inspired desktop environment.",
+      "image": "https://raw.githubusercontent.com/owsam22/pixel-engineer-live-wallpaper/refs/heads/main/assets/0302.gif?w=400",
+      "github": "https://github.com/owsam22/pixel-engineer-live-wallpaper",
+      "demo": "https://owsam22.github.io/pixel-engineer-live-wallpaper/",
+      "tech": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Canvas"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Accrue",
+      "description": "A scalable personal finance manager with multi-account tracking ,bills, and seamless cross-device sync using unified backend",
+      "image": "https://raw.githubusercontent.com/owsam22/Accrue-web/refs/heads/main/assets/dashboard.png",
+      "github": "https://github.com/owsam22/Accrue-web",
+      "demo": "https://accrue-expense-web.vercel.app/",
+      "tech": [
+        "Node.js",
+        "React",
+        "Database",
+        "Websocket"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Planory",
+      "description": "smart todo app with real time reminder notification directly over notification bar .",
+      "image": "https://camo.githubusercontent.com/c4d50cc91e0b20ae458ecd590f066bc30f4dc152490d849a3b68c70ade23a917/68747470733a2f2f692e70696e696d672e636f6d2f6f726967696e616c732f30382f33382f38342f30383338383437663030306339656266353465653661626337396535343837622e676966",
+      "github": "https://github.com/owsam22/planory",
+      "demo": "planory-b7rk.vercel.app/",
+      "tech": [
+        "TypeScript",
+        "Node",
+        "MongoDB",
+        "WebSocket"
+      ]
+    }
+  ]
+}

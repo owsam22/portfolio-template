@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap:ADD YOUR SITEMAP URL HERE (example :- https://portfolio.owsam22.com/sitemap.xml)
