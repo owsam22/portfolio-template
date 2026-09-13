@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-react",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lenis": "^1.3.17",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-loading-skeleton": "^3.5.0",
+    "styled-components": "^6.3.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7"
+  }
+}
