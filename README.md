@@ -1,5 +1,5 @@
 # 🚀 Developer Portfolio Template
-
+A free, modern, and responsive developer portfolio template built with React and Vite. Easily customize your name, projects, skills, experience, social links, colors, and personal information to create your own professional portfolio website.
 <div align="center">
 
   <img src="src/assets/main.png" alt="Portfolio Logo" width="100" height="auto" />
